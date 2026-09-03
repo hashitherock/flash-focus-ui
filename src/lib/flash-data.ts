@@ -182,6 +182,8 @@ export type Campaign = {
   lines: CampaignLine[];
 };
 
+const byId = (id: string): Product => PRODUCTS.find((p) => p.id === id)!;
+
 const line = (
   p: Product,
   flashPrice: number,
@@ -213,11 +215,11 @@ export const CAMPAIGNS: Campaign[] = [
     endTime: "10:00 PM",
     revenue: 234433,
     lines: [
-      line(PRODUCTS[0], 79999, 10, 7),
-      line(PRODUCTS[1], 27999, 8, 8),
-      line(PRODUCTS[2], 3499, 40, 26),
-      line(PRODUCTS[5], 10999, 22, 14),
-      line(PRODUCTS[7], 24499, 20, 12),
+      line(byId("p1"), 79999, 10, 7),
+      line(byId("p2"), 27999, 8, 8),
+      line(byId("p3"), 3499, 40, 26),
+      line(byId("p6"), 10999, 22, 14),
+      line(byId("p8"), 24499, 20, 12),
     ],
   },
   {
@@ -231,7 +233,7 @@ export const CAMPAIGNS: Campaign[] = [
     endTime: "10:00 PM",
     countdown: "02h 18m",
     revenue: 0,
-    lines: [line(PRODUCTS[3], 69900, 20, 0), line(PRODUCTS[4], 99500, 40, 0), line(PRODUCTS[6], 999, 60, 0)],
+    lines: [line(byId("p4"), 69900, 20, 0), line(byId("p5"), 99500, 40, 0), line(byId("p7"), 999, 60, 0)],
   },
   {
     id: "fs-2477",
@@ -243,7 +245,7 @@ export const CAMPAIGNS: Campaign[] = [
     endDay: "08 Sep 2026",
     endTime: "9:00 PM",
     revenue: 189500,
-    lines: [line(PRODUCTS[1], 26999, 40, 40), line(PRODUCTS[5], 10499, 30, 30), line(PRODUCTS[7], 23999, 30, 30)],
+    lines: [line(byId("p2"), 26999, 40, 40), line(byId("p6"), 10499, 30, 30), line(byId("p8"), 23999, 30, 30)],
   },
   {
     id: "fs-2465",
@@ -255,7 +257,7 @@ export const CAMPAIGNS: Campaign[] = [
     endDay: "09 Sep 2026",
     endTime: "11:00 PM",
     revenue: 21400,
-    lines: [line(PRODUCTS[2], 3699, 50, 8), line(PRODUCTS[6], 1050, 30, 4)],
+    lines: [line(byId("p3"), 3699, 50, 8), line(byId("p7"), 1050, 30, 4)],
   },
   {
     id: "fs-2452",
@@ -267,7 +269,7 @@ export const CAMPAIGNS: Campaign[] = [
     endDay: "02 Sep 2026",
     endTime: "10:00 PM",
     revenue: 156200,
-    lines: [line(PRODUCTS[0], 81500, 40, 24), line(PRODUCTS[4], 104000, 30, 18), line(PRODUCTS[3], 71000, 30, 16)],
+    lines: [line(byId("p1"), 81500, 40, 24), line(byId("p5"), 104000, 30, 18), line(byId("p4"), 71000, 30, 16)],
   },
 ];
 
