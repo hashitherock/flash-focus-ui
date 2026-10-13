@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CreateRouteImport } from './routes/create'
+import { Route as EmailRouteImport } from './routes/email'
+import { Route as OverviewRouteImport } from './routes/overview'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PromotionsRouteImport } from './routes/promotions'
 import { Route as CampaignIdRouteImport } from './routes/campaign.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +27,26 @@ const CreateRoute = CreateRouteImport.update({
   path: '/create',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmailRoute = EmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverviewRoute = OverviewRouteImport.update({
+  id: '/overview',
+  path: '/overview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromotionsRoute = PromotionsRouteImport.update({
+  id: '/promotions',
+  path: '/promotions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CampaignIdRoute = CampaignIdRouteImport.update({
   id: '/campaign/$id',
   path: '/campaign/$id',
@@ -32,30 +56,68 @@ const CampaignIdRoute = CampaignIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
+  '/email': typeof EmailRoute
+  '/overview': typeof OverviewRoute
+  '/products': typeof ProductsRoute
+  '/promotions': typeof PromotionsRoute
   '/campaign/$id': typeof CampaignIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
+  '/email': typeof EmailRoute
+  '/overview': typeof OverviewRoute
+  '/products': typeof ProductsRoute
+  '/promotions': typeof PromotionsRoute
   '/campaign/$id': typeof CampaignIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
+  '/email': typeof EmailRoute
+  '/overview': typeof OverviewRoute
+  '/products': typeof ProductsRoute
+  '/promotions': typeof PromotionsRoute
   '/campaign/$id': typeof CampaignIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/create' | '/campaign/$id'
+  fullPaths:
+    | '/'
+    | '/create'
+    | '/email'
+    | '/overview'
+    | '/products'
+    | '/promotions'
+    | '/campaign/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/create' | '/campaign/$id'
-  id: '__root__' | '/' | '/create' | '/campaign/$id'
+  to:
+    | '/'
+    | '/create'
+    | '/email'
+    | '/overview'
+    | '/products'
+    | '/promotions'
+    | '/campaign/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/create'
+    | '/email'
+    | '/overview'
+    | '/products'
+    | '/promotions'
+    | '/campaign/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CreateRoute: typeof CreateRoute
+  EmailRoute: typeof EmailRoute
+  OverviewRoute: typeof OverviewRoute
+  ProductsRoute: typeof ProductsRoute
+  PromotionsRoute: typeof PromotionsRoute
   CampaignIdRoute: typeof CampaignIdRoute
 }
 
@@ -75,6 +137,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/email': {
+      id: '/email'
+      path: '/email'
+      fullPath: '/email'
+      preLoaderRoute: typeof EmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/overview': {
+      id: '/overview'
+      path: '/overview'
+      fullPath: '/overview'
+      preLoaderRoute: typeof OverviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/promotions': {
+      id: '/promotions'
+      path: '/promotions'
+      fullPath: '/promotions'
+      preLoaderRoute: typeof PromotionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/campaign/$id': {
       id: '/campaign/$id'
       path: '/campaign/$id'
@@ -88,6 +178,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CreateRoute: CreateRoute,
+  EmailRoute: EmailRoute,
+  OverviewRoute: OverviewRoute,
+  ProductsRoute: ProductsRoute,
+  PromotionsRoute: PromotionsRoute,
   CampaignIdRoute: CampaignIdRoute,
 }
 export const routeTree = rootRouteImport
